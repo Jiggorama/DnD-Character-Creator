@@ -3,6 +3,8 @@ console.log('Yo Dawg')
   // create the main page with a function that runs on load
   // function will append the main html section with and Image and a button
   // button takes user input (click) to move on to the next section of the app
+
+  
 const mainPage = document.querySelector('.main')
 const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
 let onLoad = () => {
@@ -21,13 +23,22 @@ let onLoad = () => {
 
 //charecter
   //set a variable to charecter which will be an object
-  // charecter will include a race and class
-  // charecter = object
+  // character will include a race and class
+  // character = object
   //      race
   //      class
   // create an array of races
   // create an array of classes
   // create an image bank for each class
+
+
+let character = {
+  race: "",
+  class: "",
+}
+const races = ['dragonborn', 'dwarf', 'elf', 'gnome', 'half-elf', 'half-orc', 'halfling', 'human', 'tiefling']
+const classes = ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
+const imageBank = []
   
 
 // clear the main
