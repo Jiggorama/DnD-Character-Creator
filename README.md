@@ -41,8 +41,8 @@ https://www.dnd5eapi.co/api/
 
 ## Wireframes
 
-Desktop: https://wireframe.cc/etRTKu
-Mobile: https://wireframe.cc/IgCrit
+- Desktop: https://wireframe.cc/etRTKu
+- Mobile: https://wireframe.cc/IgCrit
 
 ### MVP/PostMVP
 
