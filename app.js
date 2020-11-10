@@ -4,7 +4,7 @@ console.log('Yo Dawg')
   // function will append the main html section with and Image and a button
   // button takes user input (click) to move on to the next section of the app
 
-  
+
 const mainPage = document.querySelector('.main')
 const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
 let onLoad = () => {
@@ -18,8 +18,12 @@ let onLoad = () => {
   begin.setAttribute('type', 'submit')
   begin.setAttribute('value', 'Click to Create a Character')
   home.append(begin)
+  begin.addEventListener('click', (event) => {
+    event.preventDefault()
+    //function to call next section
+  })
 }
-  onLoad()
+
 
 //charecter
   //set a variable to charecter which will be an object
@@ -44,6 +48,13 @@ const imageBank = []
 // clear the main
   //function to append the main and remove child elements
   //function = clearMain
+
+let clearMain = () => {
+  while (mainPage.lastChild) {
+    mainPage.removeChild(mainPage.lastChild)
+  }    
+}
+  
 
 // User selects a race
     // on mainpage button event
@@ -74,3 +85,4 @@ const imageBank = []
     // Append main with a start over button
       // button when click will refresh page or invoke main page function
 
+      onLoad()
