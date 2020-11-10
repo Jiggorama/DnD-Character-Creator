@@ -9,8 +9,13 @@ text-align: center;
 main {
   display: flex;
   text-align: center;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+}
+img {
+  width: 250px;
+  height: auto;
 }
 .home {
   display: flex;
@@ -24,12 +29,20 @@ main {
 .home input{
   margin: 15px;
 }
+.theRaces{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.theRaces img {
+  width: 150px;
+  height: auto;
+}
+
+
 footer {
   /* display: flex; */
   text-align: center;
 }
 
-img {
-  width: 250px;
-  height: auto;
-}

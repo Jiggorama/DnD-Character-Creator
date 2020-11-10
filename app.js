@@ -21,6 +21,7 @@ let onLoad = () => {
   begin.addEventListener('click', (event) => {
     event.preventDefault()
     //function to call next section
+    chooseRace()
   })
 }
 
@@ -65,6 +66,29 @@ let clearMain = () => {
       //create a button on the main html that advances to the next section
       // on click store the users race selection in the character object and advance to next section of app
 
+let chooseRace = () => {
+  clearMain()
+  for (let i = 0; i < races.length; i++) {
+    let raceChoice = document.createElement('div')
+    raceChoice.className = ('theRaces')
+    mainPage.append(raceChoice)
+    let raceName = document.createElement('h4')
+    raceName.textContent = (races[i].toUpperCase())
+    raceChoice.append(raceName)
+    let raceImage = document.createElement('img')
+    raceImage.setAttribute('src', homePageImage)
+    raceChoice.append(raceImage)
+  }
+  let advance = document.createElement('input')
+  advance.setAttribute('type', 'submit')
+  advance.setAttribute('value', 'Now Choose your Class')
+  mainPage.append(advance)
+  advance.addEventListener('click', (event) => {
+    event.preventDefault()
+    //function to call next section
+    chooseClass()
+  })
+}
 // user selects a class
    // on advance button event
       // run clearMain function
