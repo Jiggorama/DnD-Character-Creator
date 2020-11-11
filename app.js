@@ -98,6 +98,31 @@ let chooseRace = () => {
       //create a button on the main html that advances to the next section
       // on click store the users class selection in the character object and advance to next section of app
 
+      let chooseClass = () => {
+        clearMain()
+        for (let i = 0; i < classes.length; i++) {
+          let classChoice = document.createElement('div')
+          classChoice.className = ('theClasses')
+          mainPage.append(classChoice)
+          let className = document.createElement('h4')
+          className.textContent = (classes[i].toUpperCase())
+          classChoice.append(className)
+          let classImage = document.createElement('img')
+          classImage.setAttribute('src', homePageImage)
+          classChoice.append(classImage)
+        }
+        let advance = document.createElement('input')
+        advance.setAttribute('type', 'submit')
+        advance.setAttribute('value', 'Preview Your Character')
+        mainPage.append(advance)
+        advance.addEventListener('click', (event) => {
+          event.preventDefault()
+          //function to call next section
+          chooseClass()
+        })
+      }
+
+
 // display results
   // on advance button event
       // run clearMain function

@@ -1,10 +1,15 @@
 body {
   background-color: antiquewhite;
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between; 
 }
 header {
-/* display: flex; */
+display: flex;
+flex-direction: column;
 text-align: center;
+height: 140px;
 }
 main {
   display: flex;
@@ -12,6 +17,8 @@ main {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
+  flex-grow: 4;
+  
 }
 img {
   width: 250px;
@@ -39,10 +46,26 @@ img {
   width: 150px;
   height: auto;
 }
+.theClasses{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.theClasses img {
+  width: 150px;
+  height: auto;
+}
 
 
 footer {
-  /* display: flex; */
+  display: flex;
   text-align: center;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  /* position: relative;
+  bottom: 0;
+  width: 100%; */
 }
 
