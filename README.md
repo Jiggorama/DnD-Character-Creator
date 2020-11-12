@@ -83,17 +83,17 @@ https://docs.google.com/drawings/d/1iO6J0560OiZ5ouG5mNHcnIAdojgH88kRoLnKAvmlL8g/
 | --- | :---: |  :---: | :---: | :---: |
 | Set up html homepage| H | 2hrs| 1 | -- |
 |Code homepage javascript| H | 3hrs| 1 | -- |
-|Javascript for races| H | 3hrs| 1hrs | 2 |
-|Manip Dom for choosing Race| H | 3hrs| 1 | -- |
-|Javascrpit for Classes| H | 3hrs| -- | 1 |
-|Manip Dom for choosing class| H | 3hrs| 1 | -- |
-|Working with API| H | 3hrs| -- | -- |
-|Display API info| H | 3hrs| -- | -- |
-|Styling Divs CSS| H | 3hrs| 3 | -- |
-|Styling Images CSS| H | 3hrs| 1 | -- |
+|Javascript for races| H | 3hrs| 1hrs | 4 |
+|Manip Dom for choosing Race| H | 3hrs| 3 | -- |
+|Javascrpit for Classes| H | 3hrs| -- | 2 |
+|Manip Dom for choosing class| H | 3hrs| 2 | -- |
+|Working with API| H | 3hrs| 2 | -- |
+|Display API info| H | 3hrs| 2 | -- |
+|Styling Divs CSS| H | 3hrs| 4 | -- |
+|Styling Images CSS| H | 3hrs| 2 | -- |
 | Extra hours javascripting | H | 3hrs| -- | -- |
 | Finding Images | H | 3hrs| -- | -- |
-| Attaching Images to user input | H | 3hrs| -- | -- |
+| Attaching Images to user input | H | 3hrs| 2 | -- |
 | Advanced CSS | L | 3hrs| -- | -- |
 | Total | H | 41hrs| -- | -- |
 

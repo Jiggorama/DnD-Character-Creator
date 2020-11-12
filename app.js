@@ -40,8 +40,8 @@ let img1 = 'https://wotbsadventurepath.files.wordpress.com/2013/05/ragesian-cast
 
 // character
 let character = {
-  race: null,
-  class: null,
+  race: "human",
+  class: 'fighter',
 }
 // race objects
 let dragonborn = {
@@ -134,10 +134,10 @@ let wizard = {
 }
 //array of objects
 const classes = [barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, rogue, sorcerer, warlock, wizard]
-const imageBank = []
+// const imageBank = []
   
 
-// clear the main
+// clear the main and other useful functions
   //function to append the main and remove child elements
   //function = clearMain
 
@@ -149,6 +149,17 @@ let clearMain = () => {
 }
 let clearModal = (parent) => {
    parent.removeChild(parent.lastChild)
+}
+
+let highlight = () => {
+  let images = document.querySelectorAll('img')
+  console.log(images);
+  images.forEach(element => {
+    if (element.classList.contains('active')) {
+      element.classList.remove('active')
+    }    
+  })
+  this.classList += ('active')
 }
 
 // User selects a race
@@ -172,24 +183,27 @@ function chooseRace() {
     raceChoice.append(raceName)
     let raceImage = document.createElement('img')
     raceImage.setAttribute('src', homePageImage)
-    raceImage.className = (races[i].name)
+    raceImage.className = ('theImages')
+    raceImage.id =(races[i].name)
     raceChoice.append(raceImage)
     raceImage.addEventListener('click', () => {
-      character.race = raceImage.className
+      character.race = raceImage.id
       console.log(character.race)
+      highlight()
     })
     let infoButton = document.createElement('button')
     infoButton.setAttribute('id', races[i].name)
+    infoButton.className = ('infoButton')
     infoButton.textContent = ('info')
     raceChoice.append(infoButton)
     infoButton.addEventListener('click', () => {
       let modal = document.querySelector('.modal')
       clearModal(modal)
       let info = document.createElement('p')
-      let raceInfo = async () => {
+      let accessApi2 = async () => {
         try {
           let res = await axios.get(`https://www.dnd5eapi.co/api/races/${infoButton.id}`)
-          console.log(res.data.alignment);
+          // console.log(res.data.alignment)
           info.textContent = res.data.alignment
           modal.append(info)
       
@@ -197,7 +211,7 @@ function chooseRace() {
           console.log(`Error: ${error}`);
         }
       }
-      raceInfo()
+      accessApi2()
       document.querySelector('.modalContainer').style.display = 'flex'
     })
 
@@ -212,12 +226,12 @@ function chooseRace() {
   mainPage.append(advance)
   advance.addEventListener('click', (event) => {
     event.preventDefault()
-    if (character.race == null) {
-      alert('PlEASE CHOOSE A RACE')
-    } else {
+    // if (character.race == null) {
+    //   alert('PlEASE CHOOSE A RACE')
+    // } else {
       //function to call next section
       chooseClass()
-    }
+    // }
   })
 }
 
@@ -243,11 +257,12 @@ function chooseRace() {
           classChoice.append(className)
           let classImage = document.createElement('img')
           classImage.setAttribute('src', homePageImage)
-          classImage.className = (classes[i].name)
+          classImage.className = ('theImages')
+          classImage.id = (classes[i].name)
           classChoice.append(classImage)
           classImage.addEventListener('click', () => {
-          character.class = classImage.className
-          console.log(character.class);
+          character.class = classImage.id
+          // console.log(character.class);
           })
         }
         let advance = document.createElement('input')
@@ -257,12 +272,12 @@ function chooseRace() {
         mainPage.append(advance)
         advance.addEventListener('click', (event) => {
           event.preventDefault()
-          if (character.class == null) {
-            alert('PlEASE CHOOSE A CLASS')
-          } else {
+          // if (character.class == null) {
+          //   alert('PlEASE CHOOSE A CLASS')
+          // } else {
           //function to call next section
           displayCharacter(character.class)
-          }
+          // }
         })
       }
 
@@ -289,17 +304,31 @@ let displayCharacter = (x) => {
   mainPage.append(characterHeading)
 //create a div for the img and api query
   let characterDiv = document.createElement('div')
-  characterDiv.className = 'charecterDiv'
+  characterDiv.className = 'characterDiv'
   mainPage.append(characterDiv)
   //add image
   let characterImage = document.createElement('img')
   characterImage.setAttribute('src', homePageImage)
   characterDiv.append(characterImage)
+
   //access api
   let accessApi1 = async () => {
     try {
       let res = await axios.get(apiUrl)
-      console.log(res)
+      // console.log(res.data)
+      let apiDiv = document.createElement('div')
+      apiDiv.className = 'apiDiv'
+      characterDiv.append(apiDiv)
+      let proficienciesList = document.createElement('ul')
+      apiDiv.append(proficienciesList)
+      proficienciesList.textContent = 'Proficiencies:'
+      let proficiencies = res.data.proficiencies
+      // console.log(proficiencies)
+      proficiencies.forEach(element => {
+        let listItem = document.createElement('li')
+        listItem.textContent = (element.name)
+        proficienciesList.append(listItem)
+      });
       
     } catch (error) {
       console.log(`Error: ${error}`);
