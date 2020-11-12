@@ -3,7 +3,7 @@ console.log('Yo Dawg')
   // create the main page with a function that runs on load
   // function will append the main html section with and Image and a button
   // button takes user input (click) to move on to the next section of the app
-
+// scroll background https://www.desktopbackground.org/download/1024x600/2013/12/11/683741_20-best-photos-of-scroll-backgrounds-template-blank-scroll-paper_1024x768_h.jpg
 
 const mainPage = document.querySelector('.main')
 const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
@@ -11,12 +11,13 @@ let onLoad = () => {
   let home = document.createElement('div')
   home.className = ('home')
   mainPage.append(home)
-  let homeImage = document.createElement('img')
-  homeImage.setAttribute('src', img1)
-  home.append(homeImage)
+  // --image seems superfluous--
+  // let homeImage = document.createElement('img')
+  // homeImage.setAttribute('src', img1)
+  // home.append(homeImage)
   let begin = document.createElement('input')
   begin.setAttribute('type', 'submit')
-  begin.setAttribute('value', 'Click to Create a Character')
+  begin.setAttribute('value', 'Begin')
   home.append(begin)
   begin.addEventListener('click', (event) => {
     event.preventDefault()
@@ -39,8 +40,8 @@ let img1 = 'https://wotbsadventurepath.files.wordpress.com/2013/05/ragesian-cast
 
 // character
 let character = {
-  race: "elf",
-  class: "cleric",
+  race: null,
+  class: null,
 }
 // race objects
 let dragonborn = {
@@ -79,8 +80,60 @@ let tiefling = {
   name: 'tiefling',
   image: 'url',
 }
+// array of objects
 const races = [dragonborn, dwarf, elf, gnome, halfElf, halfOrc, halfling, human, tiefling]
-const classes = ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
+
+// Class objects
+let barbarian = {
+  name: 'barbarian',
+  image: 'url',
+}
+let bard = {
+  name: 'bard',
+  image: 'url',
+}
+let cleric = {
+  name: 'cleric',
+  image: 'url',
+}
+let druid = {
+  name: 'druid',
+  image: 'url',
+}
+let fighter = {
+  name: 'fighter',
+  image: 'url',
+}
+let monk = {
+  name: 'monk',
+  image: 'url',
+}
+let paladin = {
+  name: 'paladin',
+  image: 'url',
+}
+let ranger = {
+  name: 'ranger',
+  image: 'url',
+}
+let rogue = {
+  name: 'rogue',
+  image: 'url',
+}
+let sorcerer = {
+  name: 'sorcerer',
+  image: 'url',
+}
+let warlock = {
+  name: 'warlock',
+  image: 'url',
+}
+let wizard = {
+  name: 'wizard',
+  image: 'url',
+}
+//array of objects
+const classes = [barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, rogue, sorcerer, warlock, wizard]
 const imageBank = []
   
 
@@ -117,17 +170,27 @@ let chooseRace = () => {
     raceChoice.append(raceName)
     let raceImage = document.createElement('img')
     raceImage.setAttribute('src', homePageImage)
+    raceImage.className = (races[i].name)
     raceChoice.append(raceImage)
+    raceImage.addEventListener('click', () => {
+      character.race = raceImage.className
+      console.log(character.race);
+    })
     
   }
   let advance = document.createElement('input')
   advance.setAttribute('type', 'submit')
   advance.setAttribute('value', 'Now Choose your Class')
+  advance.className = ('advance')
   mainPage.append(advance)
   advance.addEventListener('click', (event) => {
     event.preventDefault()
-    //function to call next section
+    if (character.race == null) {
+      alert('PlEASE CHOOSE A RACE')
+    } else {
+          //function to call next section
     chooseClass()
+    }
   })
 }
 
@@ -149,20 +212,30 @@ let chooseRace = () => {
           classChoice.className = ('theClasses')
           mainPage.append(classChoice)
           let className = document.createElement('h4')
-          className.textContent = (classes[i].toUpperCase())
+          className.textContent = (classes[i].name.toUpperCase())
           classChoice.append(className)
           let classImage = document.createElement('img')
           classImage.setAttribute('src', homePageImage)
+          classImage.className = (classes[i].name)
           classChoice.append(classImage)
+          classImage.addEventListener('click', () => {
+          character.class = classImage.className
+          console.log(character.class);
+          })
         }
         let advance = document.createElement('input')
         advance.setAttribute('type', 'submit')
         advance.setAttribute('value', 'Preview Your Character')
+        advance.className = ('advance')
         mainPage.append(advance)
         advance.addEventListener('click', (event) => {
           event.preventDefault()
+          if (character.class == null) {
+            alert('PlEASE CHOOSE A CLASS')
+          } else {
           //function to call next section
-          displayCharacter('cleric')
+          displayCharacter(character.class)
+          }
         })
       }
 
@@ -184,7 +257,8 @@ let displayCharacter = (x) => {
   let apiUrl = `https://www.dnd5eapi.co/api/classes/${x}`
 //Display text stating what was made
   let characterHeading = document.createElement('h3')
-  characterHeading.textContent = (`A ${character.race}, ${character.class}`)
+  characterHeading.className = ('characterHeading')
+  characterHeading.textContent = (`YOU HAVE CREATED A ${character.race.toUpperCase()}, ${character.class.toUpperCase()}`)
   mainPage.append(characterHeading)
 //create a div for the img and api query
   let characterDiv = document.createElement('div')
@@ -205,6 +279,16 @@ let displayCharacter = (x) => {
     }
   }
   accessApi1()
+  let advance = document.createElement('input')
+        advance.setAttribute('type', 'submit')
+        advance.setAttribute('value', 'Start over')
+  mainPage.append(advance)
+  advance.className = ('advance')
+  advance.addEventListener('click', (event) => {
+    event.preventDefault()
+    clearMain()
+    onLoad()
+  })
 }
 
 
