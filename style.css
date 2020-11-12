@@ -84,3 +84,34 @@ footer {
   width: 100%; */
 }
 
+/* modal stuff */
+/* While I have tweaked this styling to suite my needs, the bulk of it as well as the general "how to" knowledge for the whole Modal concept came from Richard Middleton and his extremely helpful youtube tutorial on modals. Populating the modal with information from my API was done without outside referance other than what has been learned in class. Mr. Middleton has a delightful brittish accent so the video is worth a watch.
+Youtube video: https://www.youtube.com/watch?v=gLWIYk0Sd38&t=915s
+Codepen from video: https://codepen.io/Middi/pen/rJYOyz?editors=0010 */
+.modalContainer {
+  background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+.modal {
+  height: auto;
+	width: 300px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border-radius: 4px;
+}
+.close {
+  position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 42px;
+	transform: rotate(45deg);
+	cursor: pointer;
+}

@@ -147,7 +147,9 @@ let clearMain = () => {
     mainPage.removeChild(mainPage.lastChild)
   }    
 }
-  
+let clearModal = (parent) => {
+   parent.removeChild(parent.lastChild)
+}
 
 // User selects a race
     // on mainpage button event
@@ -159,7 +161,7 @@ let clearMain = () => {
       // on click store the users race selection in the character object and advance to next section of app
 
 
-let chooseRace = () => {
+function chooseRace() {
   clearMain()
   for (let i = 0; i < races.length; i++) {
     let raceChoice = document.createElement('div')
@@ -174,10 +176,35 @@ let chooseRace = () => {
     raceChoice.append(raceImage)
     raceImage.addEventListener('click', () => {
       character.race = raceImage.className
-      console.log(character.race);
+      console.log(character.race)
     })
-    
+    let infoButton = document.createElement('button')
+    infoButton.setAttribute('id', races[i].name)
+    infoButton.textContent = ('info')
+    raceChoice.append(infoButton)
+    infoButton.addEventListener('click', () => {
+      let modal = document.querySelector('.modal')
+      clearModal(modal)
+      let info = document.createElement('p')
+      let raceInfo = async () => {
+        try {
+          let res = await axios.get(`https://www.dnd5eapi.co/api/races/${infoButton.id}`)
+          console.log(res.data.alignment);
+          info.textContent = res.data.alignment
+          modal.append(info)
+      
+        } catch (error) {
+          console.log(`Error: ${error}`);
+        }
+      }
+      raceInfo()
+      document.querySelector('.modalContainer').style.display = 'flex'
+    })
+
   }
+  document.querySelector('.close').addEventListener('click', () => {
+    document.querySelector('.modalContainer').style.display = 'none'
+  })
   let advance = document.createElement('input')
   advance.setAttribute('type', 'submit')
   advance.setAttribute('value', 'Now Choose your Class')
@@ -188,8 +215,8 @@ let chooseRace = () => {
     if (character.race == null) {
       alert('PlEASE CHOOSE A RACE')
     } else {
-          //function to call next section
-    chooseClass()
+      //function to call next section
+      chooseClass()
     }
   })
 }
