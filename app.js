@@ -12,7 +12,7 @@ let onLoad = () => {
   home.className = ('home')
   mainPage.append(home)
   let homeImage = document.createElement('img')
-  homeImage.setAttribute('src', homePageImage)
+  homeImage.setAttribute('src', img1)
   home.append(homeImage)
   let begin = document.createElement('input')
   begin.setAttribute('type', 'submit')
@@ -32,16 +32,54 @@ let onLoad = () => {
   // character = object
   //      race
   //      class
-  // create an array of races
+  // create an array of objects of races
   // create an array of classes
   // create an image bank for each class
+let img1 = 'https://wotbsadventurepath.files.wordpress.com/2013/05/ragesian-castle.jpg'
 
-
+// character
 let character = {
-  race: "",
-  class: "",
+  race: "elf",
+  class: "cleric",
 }
-const races = ['dragonborn', 'dwarf', 'elf', 'gnome', 'half-elf', 'half-orc', 'halfling', 'human', 'tiefling']
+// race objects
+let dragonborn = {
+  name: 'dragonborn',
+  image: 'url',
+}
+let dwarf = {
+  name: 'dwarf',
+  image: 'url',
+}
+let elf = {
+  name: 'elf',
+  image: 'url',
+}
+let gnome = {
+  name: 'gnome',
+  image: 'url',
+}
+let halfElf = {
+  name: 'half-elf',
+  image: 'url',
+}
+let halfOrc = {
+  name: 'half-orc',
+  image: 'url',
+}
+let halfling = {
+  name: 'halfling',
+  image: 'url',
+}
+let human = {
+  name: 'human',
+  image: 'url',
+}
+let tiefling = {
+  name: 'tiefling',
+  image: 'url',
+}
+const races = [dragonborn, dwarf, elf, gnome, halfElf, halfOrc, halfling, human, tiefling]
 const classes = ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
 const imageBank = []
   
@@ -49,6 +87,7 @@ const imageBank = []
 // clear the main
   //function to append the main and remove child elements
   //function = clearMain
+
 
 let clearMain = () => {
   while (mainPage.lastChild) {
@@ -66,6 +105,7 @@ let clearMain = () => {
       //create a button on the main html that advances to the next section
       // on click store the users race selection in the character object and advance to next section of app
 
+
 let chooseRace = () => {
   clearMain()
   for (let i = 0; i < races.length; i++) {
@@ -73,11 +113,12 @@ let chooseRace = () => {
     raceChoice.className = ('theRaces')
     mainPage.append(raceChoice)
     let raceName = document.createElement('h4')
-    raceName.textContent = (races[i].toUpperCase())
+    raceName.textContent = (races[i].name.toUpperCase())
     raceChoice.append(raceName)
     let raceImage = document.createElement('img')
     raceImage.setAttribute('src', homePageImage)
     raceChoice.append(raceImage)
+    
   }
   let advance = document.createElement('input')
   advance.setAttribute('type', 'submit')
@@ -89,6 +130,8 @@ let chooseRace = () => {
     chooseClass()
   })
 }
+
+
 // user selects a class
    // on advance button event
       // run clearMain function
@@ -97,6 +140,7 @@ let chooseRace = () => {
       // add event listeners for user to click to select a class, a checkmark works as well
       //create a button on the main html that advances to the next section
       // on click store the users class selection in the character object and advance to next section of app
+
 
       let chooseClass = () => {
         clearMain()
@@ -118,7 +162,7 @@ let chooseRace = () => {
         advance.addEventListener('click', (event) => {
           event.preventDefault()
           //function to call next section
-          chooseClass()
+          displayCharacter('cleric')
         })
       }
 
@@ -134,4 +178,38 @@ let chooseRace = () => {
     // Append main with a start over button
       // button when click will refresh page or invoke main page function
 
-      onLoad()
+
+let displayCharacter = (x) => {
+  clearMain()
+  let apiUrl = `https://www.dnd5eapi.co/api/classes/${x}`
+//Display text stating what was made
+  let characterHeading = document.createElement('h3')
+  characterHeading.textContent = (`A ${character.race}, ${character.class}`)
+  mainPage.append(characterHeading)
+//create a div for the img and api query
+  let characterDiv = document.createElement('div')
+  characterDiv.className = 'charecterDiv'
+  mainPage.append(characterDiv)
+  //add image
+  let characterImage = document.createElement('img')
+  characterImage.setAttribute('src', homePageImage)
+  characterDiv.append(characterImage)
+  //access api
+  let accessApi1 = async () => {
+    try {
+      let res = await axios.get(apiUrl)
+      console.log(res)
+      
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
+  }
+  accessApi1()
+}
+
+
+
+
+
+      
+onLoad()
