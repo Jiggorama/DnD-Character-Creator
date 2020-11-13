@@ -54,31 +54,31 @@ let dwarf = {
 }
 let elf = {
   name: 'elf',
-  image: 'https://i.pinimg.com/originals/33/2e/76/332e76c81688a62f25f71426b2e30def.jpg',
+  image: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/34d511d1-98d4-456c-b726-9f62e4ac38f5/d45lit4-44434b38-7592-410e-8ea9-1cc03d242c96.jpg/v1/fill/w_771,h_554,q_75,strp/high_elf_female_avatar_by_graysun_d_d45lit4-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD01NTQiLCJwYXRoIjoiXC9mXC8zNGQ1MTFkMS05OGQ0LTQ1NmMtYjcyNi05ZjYyZTRhYzM4ZjVcL2Q0NWxpdDQtNDQ0MzRiMzgtNzU5Mi00MTBlLThlYTktMWNjMDNkMjQyYzk2LmpwZyIsIndpZHRoIjoiPD03NzEifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.s6AI2k6NO6gWW2STpZzknXCe7Hg60ceaBkmSjL2xBPM',
 }
 let gnome = {
   name: 'gnome',
-  image: 'url',
+  image: 'https://static.wixstatic.com/media/619502_42abf1d00cc1464ea72686f9711b51b4~mv2.jpg/v1/fill/w_450,h_349,al_c,q_90/619502_42abf1d00cc1464ea72686f9711b51b4~mv2.jpg',
 }
 let halfElf = {
   name: 'half-elf',
-  image: 'url',
+  image: 'https://i.pinimg.com/originals/33/2e/76/332e76c81688a62f25f71426b2e30def.jpg',
 }
 let halfOrc = {
   name: 'half-orc',
-  image: 'url',
+  image: 'https://i.pinimg.com/originals/3f/5f/7a/3f5f7a884ee93b9486bf828fd27fe1d6.jpg',
 }
 let halfling = {
   name: 'halfling',
-  image: 'url',
+  image: 'https://db4sgowjqfwig.cloudfront.net/campaigns/203204/assets/905836/aleksander-karcz-halfling-bounder-aleksander-karcz.jpg?1538518193',
 }
 let human = {
   name: 'human',
-  image: 'url',
+  image: 'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/18780/2uzxc85.jpg',
 }
 let tiefling = {
   name: 'tiefling',
-  image: 'url',
+  image: 'https://a3fcd471-a-62cb3a1a-s-sites.googlegroups.com/site/heroesoflegendalpha/Navigation/Table-of-Contents/Character-Races/tiefling/Tiefling.png?attachauth=ANoY7cr5AkRFWggGWPJosi4RQyvA0NJvoY2m70Zx_8amxf5JjP1fSH56V4vf35jli3Le6nsIfzbD8aqSeIUwJgnaV3pD1JFhBAdYNYeDCZCvYc2HWrMDJkG5hTNUKtxJqjYwdO7XeiwNM42DQrZZB0Ddek_oJwnTNs8q9cgahp7erx4WdkLfsdfThguB21UuWLBTNfsvfBsXHYVfor7P4Z_Zim1vI2bDSjzLTy6-Gdi0WuvW71jPSLyzWfnTZaQaLgUVGMUECPjxwZfa3itjQ-6jZpDSVo9YZ-wh7Xm0fKvXrulTN9E6axo%3D&attredirects=0',
 }
 // array of objects
 const races = [dragonborn, dwarf, elf, gnome, halfElf, halfOrc, halfling, human, tiefling]
