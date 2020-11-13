@@ -8,6 +8,8 @@ console.log('Yo Dawg')
 const mainPage = document.querySelector('.main')
 const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
 let onLoad = () => {
+  // let audio = document.getElementById('backgroundMusic')
+  // audio.play()
   let home = document.createElement('div')
   character.race = null
   character.class = null
@@ -23,8 +25,10 @@ let onLoad = () => {
   home.append(begin)
   begin.addEventListener('click', (event) => {
     event.preventDefault()
+    playSound(`jailDoor`)
     //function to call next section
     chooseRace()
+    return
   })
 }
 
@@ -196,6 +200,7 @@ function chooseRace() {
     raceChoice.append(raceImage)
     raceImage.addEventListener('click', () => {
       character.race = raceImage.id
+      playSound(`arrowHit`)
       console.log(character.race)
       highlight(raceImage)
     })
@@ -205,6 +210,7 @@ function chooseRace() {
     infoButton.textContent = ('info')
     raceChoice.append(infoButton)
     infoButton.addEventListener('click', () => {
+      playSound(`arrow`)
       let modal = document.querySelector('.modal')
       clearModal(modal)
       let info = document.createElement('p')
@@ -223,6 +229,7 @@ function chooseRace() {
 
   }
   document.querySelector('.close').addEventListener('click', () => {
+    playSound(`arrow`)
     document.querySelector('.modalContainer').style.display = 'none'
   })
   let advance = document.createElement('input')
@@ -235,6 +242,7 @@ function chooseRace() {
     if (character.race == null) {
       alert('PlEASE CHOOSE A RACE')
     } else {
+      playSound(`jailDoor`)
       // function to call next section
       chooseClass()
     }
@@ -273,6 +281,7 @@ function chooseRace() {
           classImage.addEventListener('click', () => {
           character.class = classImage.id
           // console.log(character.class);
+            playSound(`arrowHit`)
             highlight(classImage)
           })
         }
@@ -286,6 +295,7 @@ function chooseRace() {
           if (character.class == null) {
             alert('PlEASE CHOOSE A CLASS')
           } else {
+            playSound(`jailDoor`)
           // function to call next section
           displayCharacter(character.class)
           }
@@ -361,6 +371,7 @@ let displayCharacter = (x) => {
   advance.className = ('advance')
   advance.addEventListener('click', (event) => {
     event.preventDefault()
+    playSound(`jailDoor`)
     clearMain()
     onLoad()
   })
@@ -378,6 +389,18 @@ let picClassDisplay = () => {
      character.classImage = classes[i].image
    }    
   }
+}
+
+let playSound = (x) => {
+   let audio = document.getElementById(`${x}`)
+  audio.play() 
+  // setTimeout(audio.pause(), 1000)
+}
+
+
+let pause = (x) => {
+  let audio = document.getElementById(`${x}`)
+  audio.pause()
 }
       
 onLoad()
