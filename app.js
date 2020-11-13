@@ -46,7 +46,7 @@ let character = {
 // race objects
 let dragonborn = {
   name: 'dragonborn',
-  image: 'https://i.pinimg.com/736x/83/ec/bd/83ecbd44c0207d179f1e5090e1574999.jpg',
+  image: 'https://i.pinimg.com/200x150/07/b2/db/07b2db8ddb667073da31a5f9d8add32b.jpg',
 }
 let dwarf = {
   name: 'dwarf',
@@ -182,7 +182,7 @@ function chooseRace() {
     raceName.textContent = (races[i].name.toUpperCase())
     raceChoice.append(raceName)
     let raceImage = document.createElement('img')
-    raceImage.setAttribute('src', homePageImage)
+    raceImage.setAttribute('src', races[i].image)
     raceImage.className = ('theImages')
     raceImage.id =(races[i].name)
     raceChoice.append(raceImage)
