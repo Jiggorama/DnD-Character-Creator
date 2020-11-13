@@ -235,7 +235,7 @@ function chooseRace() {
     if (character.race == null) {
       alert('PlEASE CHOOSE A RACE')
     } else {
-      function to call next section
+      // function to call next section
       chooseClass()
     }
   })
@@ -286,7 +286,7 @@ function chooseRace() {
           if (character.class == null) {
             alert('PlEASE CHOOSE A CLASS')
           } else {
-          function to call next section
+          // function to call next section
           displayCharacter(character.class)
           }
         })
