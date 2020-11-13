@@ -176,6 +176,10 @@ let highlight = (item) => {
 
 function chooseRace() {
   clearMain()
+  let instruct = document.createElement('h3')
+  instruct.textContent = ('Click an Image to select your Race')
+  mainPage.append(instruct)
+
   for (let i = 0; i < races.length; i++) {
     let raceChoice = document.createElement('div')
     raceChoice.className = ('theRaces')
@@ -250,6 +254,10 @@ function chooseRace() {
 
       let chooseClass = () => {
         clearMain()
+        let instruct = document.createElement('h3')
+        instruct.textContent = ('Click an Image to select your Class')
+        mainPage.append(instruct)
+
         for (let i = 0; i < classes.length; i++) {
           let classChoice = document.createElement('div')
           classChoice.className = ('theClasses')
