@@ -105,7 +105,7 @@ main h4{
   justify-content: space-evenly;
   margin: 15px 25px;
 }
-.theRaces img {
+.theRaces img, .theClasses img{
   width: 180px;
   height: 140px;
   /* height: auto; */
@@ -128,12 +128,7 @@ main h4{
   justify-content: space-evenly;
   margin: 15px 25px;
 }
-.theClasses img {
-  width: 180px;
-  height: 140px;
-  /* height: auto; */
-  cursor: pointer;
-}
+
 .characterHeading {
   font-family: 'immortal';
   font-size: 26px;
@@ -159,6 +154,9 @@ main h4{
 }
 .charClassImg {
   order: 5;
+  width: 240px;
+  height: auto;
+  border-radius: 55%;
 }
 .apiDiv {
   display: flex;
@@ -239,4 +237,40 @@ Codepen from video: https://codepen.io/Middi/pen/rJYOyz?editors=0010 */
   font-family: 'Montez', cursive;
   text-shadow: 0 0 3px #ffffff;
   font-size: 22px;
+}
+
+@media (max-width: 500px) {
+  header h1{
+    font-size: 30px;
+  }
+  header h3{
+    font-size: 15px;
+  }
+main {
+  flex-flow: column;
+}
+.theRaces, .theClasses {
+  width: 100%;
+}
+main h3{
+  font-size: 15px;
+}
+.theRaces img, .theClasses img {
+  width: 95%;
+  height: auto;
+}
+.characterDiv {
+  flex-flow: column;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.apiDiv {
+  order: -1;
+}
+.characterDiv img {
+  width: 85%;
+  height: auto;
+  margin-bottom: 5px;
+}
 }

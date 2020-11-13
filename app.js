@@ -9,6 +9,8 @@ const mainPage = document.querySelector('.main')
 const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
 let onLoad = () => {
   let home = document.createElement('div')
+  character.race = null
+  character.class = null
   home.className = ('home')
   mainPage.append(home)
   // --image seems superfluous--
@@ -40,8 +42,8 @@ let img1 = 'https://wotbsadventurepath.files.wordpress.com/2013/05/ragesian-cast
 
 // character
 let character = {
-  race: "human",
-  class: 'fighter',
+  race: null,
+  class: null,
   raceImage: '',
   classImage: '',
 }
