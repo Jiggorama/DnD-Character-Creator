@@ -232,12 +232,12 @@ function chooseRace() {
   mainPage.append(advance)
   advance.addEventListener('click', (event) => {
     event.preventDefault()
-    // if (character.race == null) {
-    //   alert('PlEASE CHOOSE A RACE')
-    // } else {
-      //function to call next section
+    if (character.race == null) {
+      alert('PlEASE CHOOSE A RACE')
+    } else {
+      function to call next section
       chooseClass()
-    // }
+    }
   })
 }
 
@@ -283,12 +283,12 @@ function chooseRace() {
         mainPage.append(advance)
         advance.addEventListener('click', (event) => {
           event.preventDefault()
-          // if (character.class == null) {
-          //   alert('PlEASE CHOOSE A CLASS')
-          // } else {
-          //function to call next section
+          if (character.class == null) {
+            alert('PlEASE CHOOSE A CLASS')
+          } else {
+          function to call next section
           displayCharacter(character.class)
-          // }
+          }
         })
       }
 
