@@ -82,7 +82,7 @@ https://docs.google.com/drawings/d/1iO6J0560OiZ5ouG5mNHcnIAdojgH88kRoLnKAvmlL8g/
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Set up html homepage| H | 2hrs| 1 | -- |
-|Code homepage javascript| H | 3hrs| 1 | -- |
+|Code homepage javascript| H | 3hrs| 2 | -- |
 |Javascript for races| H | 3hrs| 1hrs | 4 |
 |Manip Dom for choosing Race| H | 3hrs| 3 | -- |
 |Javascrpit for Classes| H | 3hrs| -- | 2 |
@@ -90,21 +90,39 @@ https://docs.google.com/drawings/d/1iO6J0560OiZ5ouG5mNHcnIAdojgH88kRoLnKAvmlL8g/
 |Working with API| H | 3hrs| 2 | -- |
 |Display API info| H | 3hrs| 2 | -- |
 |Styling Divs CSS| H | 3hrs| 4 | -- |
-|Styling Images CSS| H | 3hrs| 2 | -- |
-| Extra hours javascripting | H | 3hrs| -- | -- |
-| Finding Images | H | 3hrs| -- | -- |
-| Attaching Images to user input | H | 3hrs| 2 | -- |
-| Advanced CSS | L | 3hrs| -- | -- |
+|Styling Images CSS| H | 3hrs| 4| -- |
+| Extra hours javascripting | H | 3hrs| -2 | -- |
+| Finding Images | H | 3hrs| 6 | -- |
+| Attaching Images to user input | H | 3hrs| 3 | -- |
+| Advanced CSS | L | 3hrs| 4 | -- |
 | Total | H | 41hrs| -- | -- |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+I use some modals to display alignment information from my API for for each of the different race. They are activated by clicking the info buttons which polulates the modal.  The information in the modal is unique for each race and is cleared upon close.
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+let infoButton = document.createElement('button')
+    infoButton.setAttribute('id', races[i].name)
+    infoButton.className = ('infoButton')
+    infoButton.textContent = ('info')
+    raceChoice.append(infoButton)
+    infoButton.addEventListener('click', () => {
+      let modal = document.querySelector('.modal')
+      clearModal(modal)
+      let info = document.createElement('p')
+      let accessApi2 = async () => {
+        try {
+          let res = await axios.get(`https://www.dnd5eapi.co/api/races/${infoButton.id}`)
+          info.textContent = res.data.alignment
+          modal.append(info)      
+        } catch (error) {
+          console.log(`Error: ${error}`);
+        }
+      }
+      accessApi2()
+      document.querySelector('.modalContainer').style.display = 'flex'
+    })
 ```
 
 ## Change Log

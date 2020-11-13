@@ -211,10 +211,8 @@ function chooseRace() {
       let accessApi2 = async () => {
         try {
           let res = await axios.get(`https://www.dnd5eapi.co/api/races/${infoButton.id}`)
-          // console.log(res.data.alignment)
           info.textContent = res.data.alignment
-          modal.append(info)
-      
+          modal.append(info)      
         } catch (error) {
           console.log(`Error: ${error}`);
         }
