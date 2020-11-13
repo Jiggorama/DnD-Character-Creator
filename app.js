@@ -42,6 +42,8 @@ let img1 = 'https://wotbsadventurepath.files.wordpress.com/2013/05/ragesian-cast
 let character = {
   race: "human",
   class: 'fighter',
+  raceImage: '',
+  classImage: '',
 }
 // race objects
 let dragonborn = {
@@ -297,6 +299,8 @@ function chooseRace() {
 
 let displayCharacter = (x) => {
   clearMain()
+  picRaceDisplay()
+  picClassDisplay()
   let apiUrl = `https://www.dnd5eapi.co/api/classes/${x}`
 //Display text stating what was made
   let characterHeading = document.createElement('h3')
@@ -308,10 +312,15 @@ let displayCharacter = (x) => {
   characterDiv.className = 'characterDiv'
   mainPage.append(characterDiv)
   //add image
-  let characterImage = document.createElement('img')
-  characterImage.setAttribute('src', homePageImage)
-  characterDiv.append(characterImage)
+  let charRaceImg = document.createElement('img')
+  charRaceImg.className = 'charRaceImg'
+  charRaceImg.setAttribute('src', character.raceImage)
+  characterDiv.append(charRaceImg)
 
+  let charClassImg = document.createElement('img')
+  charClassImg.className = 'charClassImg'
+  charClassImg.setAttribute('src', character.classImage)
+  characterDiv.append(charClassImg)
   //access api
   let accessApi1 = async () => {
     try {
@@ -348,10 +357,19 @@ let displayCharacter = (x) => {
     onLoad()
   })
 }
-
-
-
-
-
+let picRaceDisplay = () => {
+  for (let i = 0; i < races.length; i++) {
+   if (character.race == races[i].name) {
+     character.raceImage = races[i].image
+   }    
+  }
+}
+let picClassDisplay = () => {
+  for (let i = 0; i < classes.length; i++) {
+   if (character.class == classes[i].name) {
+     character.classImage = classes[i].image
+   }    
+  }
+}
       
 onLoad()
