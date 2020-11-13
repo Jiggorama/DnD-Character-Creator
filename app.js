@@ -46,15 +46,15 @@ let character = {
 // race objects
 let dragonborn = {
   name: 'dragonborn',
-  image: 'url',
+  image: 'https://i.pinimg.com/736x/83/ec/bd/83ecbd44c0207d179f1e5090e1574999.jpg',
 }
 let dwarf = {
   name: 'dwarf',
-  image: 'url',
+  image: 'https://modernmaleficarum.files.wordpress.com/2015/08/1382893274618.jpg',
 }
 let elf = {
   name: 'elf',
-  image: 'url',
+  image: 'https://i.pinimg.com/originals/33/2e/76/332e76c81688a62f25f71426b2e30def.jpg',
 }
 let gnome = {
   name: 'gnome',
@@ -151,15 +151,15 @@ let clearModal = (parent) => {
    parent.removeChild(parent.lastChild)
 }
 
-let highlight = () => {
+let highlight = (item) => {
   let images = document.querySelectorAll('img')
   console.log(images);
   images.forEach(element => {
     if (element.classList.contains('active')) {
-      element.classList.remove('active')
+      element.removeAttribute('class','active')
     }    
   })
-  this.classList += ('active')
+  item.classList.add('active')
 }
 
 // User selects a race
@@ -189,7 +189,7 @@ function chooseRace() {
     raceImage.addEventListener('click', () => {
       character.race = raceImage.id
       console.log(character.race)
-      highlight()
+      highlight(raceImage)
     })
     let infoButton = document.createElement('button')
     infoButton.setAttribute('id', races[i].name)
@@ -263,6 +263,7 @@ function chooseRace() {
           classImage.addEventListener('click', () => {
           character.class = classImage.id
           // console.log(character.class);
+            highlight(classImage)
           })
         }
         let advance = document.createElement('input')
@@ -326,6 +327,7 @@ let displayCharacter = (x) => {
       // console.log(proficiencies)
       proficiencies.forEach(element => {
         let listItem = document.createElement('li')
+        listItem.className = ('listItem')
         listItem.textContent = (element.name)
         proficienciesList.append(listItem)
       });
@@ -337,7 +339,7 @@ let displayCharacter = (x) => {
   accessApi1()
   let advance = document.createElement('input')
         advance.setAttribute('type', 'submit')
-        advance.setAttribute('value', 'Start over')
+        advance.setAttribute('value', 'Start Over')
   mainPage.append(advance)
   advance.className = ('advance')
   advance.addEventListener('click', (event) => {
