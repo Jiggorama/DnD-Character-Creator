@@ -120,8 +120,9 @@ main h4{
   margin: 15px;
 }
 .theClasses img {
-  width: 150px;
-  height: auto;
+  width: 180px;
+  height: 140px;
+  /* height: auto; */
   cursor: pointer;
 }
 .characterHeading {

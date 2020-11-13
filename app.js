@@ -86,51 +86,51 @@ const races = [dragonborn, dwarf, elf, gnome, halfElf, halfOrc, halfling, human,
 // Class objects
 let barbarian = {
   name: 'barbarian',
-  image: 'url',
+  image: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d0b96e36-f76d-4af4-9379-8c1ae2d5d5c8/d8syebp-afb4f57d-2bee-42f6-ab0b-611da6cbcf19.jpg/v1/fill/w_487,h_350,q_70,strp/barbarian_by_tamplierpainter_d8syebp-350t.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD05MjEiLCJwYXRoIjoiXC9mXC9kMGI5NmUzNi1mNzZkLTRhZjQtOTM3OS04YzFhZTJkNWQ1YzhcL2Q4c3llYnAtYWZiNGY1N2QtMmJlZS00MmY2LWFiMGItNjExZGE2Y2JjZjE5LmpwZyIsIndpZHRoIjoiPD0xMjgwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.TjHpIyq1Ejao7WIibrgkcUO4m6iOcbokeBMt8icfQeY',
 }
 let bard = {
   name: 'bard',
-  image: 'url',
+  image: 'https://sho.co.il/barak/DND/Zamar.jpg',
 }
 let cleric = {
   name: 'cleric',
-  image: 'url',
+  image: 'https://geekandsundry.com/wp-content/uploads/2017/05/Cleric2.jpg',
 }
 let druid = {
   name: 'druid',
-  image: 'url',
+  image: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c3852962-10a3-453e-8ec1-4eb12f39da31/d8fjxze-4a626530-c64d-4487-b32d-79677d19148f.jpg/v1/fill/w_900,h_675,q_75,strp/druid_by_erlanarya_d8fjxze-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD02NzUiLCJwYXRoIjoiXC9mXC9jMzg1Mjk2Mi0xMGEzLTQ1M2UtOGVjMS00ZWIxMmYzOWRhMzFcL2Q4Zmp4emUtNGE2MjY1MzAtYzY0ZC00NDg3LWIzMmQtNzk2NzdkMTkxNDhmLmpwZyIsIndpZHRoIjoiPD05MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.wiensB1LhyQls8gwKQRj6FeS7w0g_m5vxT11oNeDYZU',
 }
 let fighter = {
   name: 'fighter',
-  image: 'url',
+  image: 'https://vignette.wikia.nocookie.net/sleeplessinstarsong/images/1/1d/Human_Fighter.jpg/revision/latest?cb=20190123000052',
 }
 let monk = {
   name: 'monk',
-  image: 'url',
+  image: 'https://www.belloflostsouls.net/wp-content/uploads/2016/12/dnd-monk.jpg',
 }
 let paladin = {
   name: 'paladin',
-  image: 'url',
+  image: 'https://static1.squarespace.com/static/5840d403bebafba4c28d6c4f/5840dc4a46c3c4e5e4b2af36/5842119f893fc0f82bcf506a/1480725201499/paladin-wallpaper%5B1%5D.jpg?format=1500w',
 }
 let ranger = {
   name: 'ranger',
-  image: 'url',
+  image: 'https://6lhz4vrtni-flywheel.netdna-ssl.com/wp-content/uploads/2020/06/unnamed1-512x481.jpg',
 }
 let rogue = {
   name: 'rogue',
-  image: 'url',
+  image: 'https://i.pinimg.com/originals/85/d7/f5/85d7f5831c04af0c961346b992e04016.jpg',
 }
 let sorcerer = {
   name: 'sorcerer',
-  image: 'url',
+  image: 'https://static.wikia.nocookie.net/emerald-isles/images/1/1b/Dwarf_Sorcerer.jpg/revision/latest?cb=20181011175750',
 }
 let warlock = {
   name: 'warlock',
-  image: 'url',
+  image: 'https://i2.wp.com/nerdarchy.com/wp-content/uploads/2018/06/warlock-spell.jpg?fit=1200%2C826&ssl=1',
 }
 let wizard = {
   name: 'wizard',
-  image: 'url',
+  image: 'https://blizzardwatch.com/wp-content/uploads/2020/08/TashaIggwil.png',
 }
 //array of objects
 const classes = [barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, rogue, sorcerer, warlock, wizard]
@@ -256,7 +256,7 @@ function chooseRace() {
           className.textContent = (classes[i].name.toUpperCase())
           classChoice.append(className)
           let classImage = document.createElement('img')
-          classImage.setAttribute('src', homePageImage)
+          classImage.setAttribute('src', classes[i].image)
           classImage.className = ('theImages')
           classImage.id = (classes[i].name)
           classChoice.append(classImage)
