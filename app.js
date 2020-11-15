@@ -7,9 +7,11 @@ console.log('Yo Dawg')
 
 const mainPage = document.querySelector('.main')
 const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
-let onLoad = () => {
-  // let audio = document.getElementById('backgroundMusic')
-  // audio.play()
+  let onLoad = () => {
+  //   document.addEventListener('click', () => {
+  //   let audio = document.getElementById('backgroundMusic')
+  //   audio.play()
+  // })
   let home = document.createElement('div')
   character.race = null
   character.class = null
@@ -161,7 +163,7 @@ let clearModal = (parent) => {
 
 let highlight = (item) => {
   let images = document.querySelectorAll('img')
-  console.log(images);
+  // console.log(images);
   images.forEach(element => {
     if (element.classList.contains('active')) {
       element.removeAttribute('class','active')
@@ -201,7 +203,7 @@ function chooseRace() {
     raceImage.addEventListener('click', () => {
       character.race = raceImage.id
       playSound(`arrowHit`)
-      console.log(character.race)
+      // console.log(character.race)
       highlight(raceImage)
     })
     let infoButton = document.createElement('button')
@@ -351,7 +353,8 @@ let displayCharacter = (x) => {
       apiDiv.append(proficienciesList)
       proficienciesList.textContent = 'Proficiencies:'
       let proficiencies = res.data.proficiencies
-      // console.log(proficiencies)
+      // let proficiencies = res.data.proficiency_choices[0].from
+      console.log(res.data)
       proficiencies.forEach(element => {
         let listItem = document.createElement('li')
         listItem.className = ('listItem')
