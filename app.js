@@ -353,23 +353,17 @@ let displayCharacter = (x) => {
   let accessApi2 = async () => {
     try {
       let res = await axios.get(apiUrl)
-      // console.log(res.data)
-      // let apiDiv = document.createElement('div')
-      // apiDiv.className = 'apiDiv'
-      // characterDiv.append(apiDiv)
       let proficienciesList = document.createElement('ul')
       apiDiv.append(proficienciesList)
       proficienciesList.textContent = 'Proficiencies:'
       let proficiencies = res.data.proficiencies
       // let proficiencies = res.data.proficiency_choices[0].from
-      // console.log(res.data)
       proficiencies.forEach(element => {
         let listItem = document.createElement('li')
         listItem.className = ('listItem')
         listItem.textContent = (element.name)
         proficienciesList.append(listItem)
-      });
-      
+      });      
     } catch (error) {
       console.log(`Error: ${error}`);
     }
