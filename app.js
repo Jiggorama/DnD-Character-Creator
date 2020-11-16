@@ -4,14 +4,19 @@ console.log('Yo Dawg')
   // function will append the main html section with and Image and a button
   // button takes user input (click) to move on to the next section of the app
 // scroll background https://www.desktopbackground.org/download/1024x600/2013/12/11/683741_20-best-photos-of-scroll-backgrounds-template-blank-scroll-paper_1024x768_h.jpg
+// document.addEventListener('click', () => {
+//   let audio = document.getElementById('backgroundMusic')
+//   if (audio.play() == true) {
+//     audio.pause()
+//   } else {
+//     audio.volume = 0.5
+//     audio.play()
+//   }
+// })
 
 const mainPage = document.querySelector('.main')
 const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
   let onLoad = () => {
-  //   document.addEventListener('click', () => {
-  //   let audio = document.getElementById('backgroundMusic')
-  //   audio.play()
-  // })
   let home = document.createElement('div')
   character.race = null
   character.class = null
@@ -216,7 +221,7 @@ function chooseRace() {
       let modal = document.querySelector('.modal')
       clearModal(modal)
       let info = document.createElement('p')
-      let accessApi2 = async () => {
+      let accessApi1 = async () => {
         try {
           let res = await axios.get(`https://www.dnd5eapi.co/api/races/${infoButton.id}`)
           info.textContent = res.data.alignment
@@ -225,7 +230,7 @@ function chooseRace() {
           console.log(`Error: ${error}`);
         }
       }
-      accessApi2()
+      accessApi1()
       document.querySelector('.modalContainer').style.display = 'flex'
     })
 
@@ -342,31 +347,51 @@ let displayCharacter = (x) => {
   charClassImg.setAttribute('src', character.classImage)
   characterDiv.append(charClassImg)
   //access api
-  let accessApi1 = async () => {
-    try {
-      let res = await axios.get(apiUrl)
-      // console.log(res.data)
-      let apiDiv = document.createElement('div')
+  let apiDiv = document.createElement('div')
       apiDiv.className = 'apiDiv'
       characterDiv.append(apiDiv)
+  let accessApi2 = async () => {
+    try {
+      let res = await axios.get(apiUrl)
       let proficienciesList = document.createElement('ul')
       apiDiv.append(proficienciesList)
       proficienciesList.textContent = 'Proficiencies:'
       let proficiencies = res.data.proficiencies
       // let proficiencies = res.data.proficiency_choices[0].from
-      console.log(res.data)
       proficiencies.forEach(element => {
         let listItem = document.createElement('li')
         listItem.className = ('listItem')
         listItem.textContent = (element.name)
         proficienciesList.append(listItem)
-      });
-      
+      });      
     } catch (error) {
       console.log(`Error: ${error}`);
     }
   }
-  accessApi1()
+  let accessApi3 = async () => {
+    try {
+      let res = await axios.get(`${apiUrl}/spells`)
+      console.log(res.data)
+      if (res.data.count > 0) {
+        let spellsList = document.createElement('ul')
+        apiDiv.append(spellsList)
+        spellsList.textContent = 'Spells:'
+        let spells = res.data.results
+        console.log(spells.length)
+        for (let i = 0; i < 4; i++) {        
+          let listItem = document.createElement('li')
+          let randomIndex = Math.floor(Math.random() * spells.length)
+            listItem.className = ('listItem')
+            listItem.textContent = (spells[randomIndex].name)
+            spellsList.append(listItem)         
+        }
+      }
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
+  }
+  accessApi2()
+  accessApi3()
   let advance = document.createElement('input')
         advance.setAttribute('type', 'submit')
         advance.setAttribute('value', 'Start Over')

@@ -160,6 +160,7 @@ main h4{
 }
 .apiDiv {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -168,6 +169,7 @@ font-size: 26px;
 font-weight: bold;
 list-style-type: none;
 padding: 0;
+margin: 10px 0;
 }
 .listItem {
   text-decoration: none;
