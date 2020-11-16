@@ -88,10 +88,10 @@ https://docs.google.com/drawings/d/1iO6J0560OiZ5ouG5mNHcnIAdojgH88kRoLnKAvmlL8g/
 |Javascrpit for Classes| H | 3hrs| 2 | -- |
 |Manip Dom for choosing class| H | 3hrs| 3 | -- |
 |Working with API| H | 3hrs| 2 | -- |
-|Display API info| H | 3hrs| 2 | -- |
+|Display API info| H | 3hrs| 3 | -- |
 |Styling Divs CSS| H | 3hrs| 4 | -- |
 |Styling Images CSS| H | 3hrs| 4| -- |
-| Extra hours javascripting | H | 3hrs| 3 | -- |
+| Extra hours javascripting | H | 3hrs| 4 | -- |
 | Finding Images | H | 3hrs| 6 | -- |
 | Attaching Images to user input | H | 3hrs| 3 | -- |
 | Advanced CSS | L | 3hrs| 4 | -- |
@@ -99,7 +99,7 @@ https://docs.google.com/drawings/d/1iO6J0560OiZ5ouG5mNHcnIAdojgH88kRoLnKAvmlL8g/
 
 ## Code Snippet
 
-I use some modals to display alignment information from my API for for each of the different race. They are activated by clicking the info buttons which polulates the modal.  The information in the modal is unique for each race and is cleared upon close.
+I use some modals to display alignment information from my API for for each of the different races. They are activated by clicking the info buttons which polulates the modal.  The information in the modal is unique for each race and is cleared upon close.
 
 ```
 let infoButton = document.createElement('button')

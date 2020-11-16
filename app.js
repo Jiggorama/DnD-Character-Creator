@@ -371,13 +371,13 @@ let displayCharacter = (x) => {
   let accessApi3 = async () => {
     try {
       let res = await axios.get(`${apiUrl}/spells`)
-      console.log(res.data)
+      // console.log(res.data)
       if (res.data.count > 0) {
         let spellsList = document.createElement('ul')
         apiDiv.append(spellsList)
         spellsList.textContent = 'Spells:'
         let spells = res.data.results
-        console.log(spells.length)
+        // console.log(spells.length)
         for (let i = 0; i < 4; i++) {        
           let listItem = document.createElement('li')
           let randomIndex = Math.floor(Math.random() * spells.length)
@@ -404,6 +404,7 @@ let displayCharacter = (x) => {
     onLoad()
   })
 }
+// functions to tie final dispay images to user choices
 let picRaceDisplay = () => {
   for (let i = 0; i < races.length; i++) {
    if (character.race == races[i].name) {
@@ -418,14 +419,12 @@ let picClassDisplay = () => {
    }    
   }
 }
-
+// sound effects
 let playSound = (x) => {
    let audio = document.getElementById(`${x}`)
   audio.play() 
   // setTimeout(audio.pause(), 1000)
 }
-
-
 let pause = (x) => {
   let audio = document.getElementById(`${x}`)
   audio.pause()
