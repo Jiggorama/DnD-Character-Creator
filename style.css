@@ -38,6 +38,7 @@ flex-direction: column;
 text-align: center;
 height: 22vh;
 text-shadow: 0 0 3px #ffd700, 0 0 5px #ffa500, 0 0 7px #ff0000;
+position: relative;
 }
 header h1 {
 font-family: 'olde-english';
@@ -51,6 +52,17 @@ font-weight: normal;
 margin: 2px 0 0 0;
 font-size: 20px;
 }
+#controls{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  /* color: rgba(255, 255, 255, 0.1); */
+  /* text-shadow: none; */
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
 main {
   display: flex;
   text-align: center;

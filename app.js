@@ -13,6 +13,18 @@ console.log('Yo Dawg')
 //     audio.play()
 //   }
 // })
+let control = document.querySelector('#controls')
+control.addEventListener('click', () => {
+  if (control.textContent == '>') {
+    let audio = document.getElementById(`backgroundMusic`)
+    audio.volume = 0.5
+    audio.play()
+    control.textContent = `||`
+  } else {
+    pause(`backgroundMusic`) 
+    control.textContent = `>`
+  }
+})
 
 const mainPage = document.querySelector('.main')
 const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
@@ -421,9 +433,9 @@ let picClassDisplay = () => {
 }
 // sound effects
 let playSound = (x) => {
-   let audio = document.getElementById(`${x}`)
+  let audio = document.getElementById(`${x}`)
+  // audio.volume = 0.8
   audio.play() 
-  // setTimeout(audio.pause(), 1000)
 }
 let pause = (x) => {
   let audio = document.getElementById(`${x}`)
