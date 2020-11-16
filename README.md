@@ -81,17 +81,17 @@ https://docs.google.com/drawings/d/1iO6J0560OiZ5ouG5mNHcnIAdojgH88kRoLnKAvmlL8g/
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Set up html homepage| H | 2hrs| 1 | -- |
+| Set up html homepage| H | 2hrs| 1.5 | -- |
 |Code homepage javascript| H | 3hrs| 2 | -- |
 |Javascript for races| H | 3hrs| 1hrs | 4 |
-|Manip Dom for choosing Race| H | 3hrs| 3 | -- |
-|Javascrpit for Classes| H | 3hrs| -- | 2 |
-|Manip Dom for choosing class| H | 3hrs| 2 | -- |
+|Manip Dom for choosing Race| H | 3hrs|  | -- |
+|Javascrpit for Classes| H | 3hrs| 2 | -- |
+|Manip Dom for choosing class| H | 3hrs| 3 | -- |
 |Working with API| H | 3hrs| 2 | -- |
 |Display API info| H | 3hrs| 2 | -- |
 |Styling Divs CSS| H | 3hrs| 4 | -- |
 |Styling Images CSS| H | 3hrs| 4| -- |
-| Extra hours javascripting | H | 3hrs| -2 | -- |
+| Extra hours javascripting | H | 3hrs| 3 | -- |
 | Finding Images | H | 3hrs| 6 | -- |
 | Attaching Images to user input | H | 3hrs| 3 | -- |
 | Advanced CSS | L | 3hrs| 4 | -- |
