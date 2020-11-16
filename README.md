@@ -84,7 +84,7 @@ https://docs.google.com/drawings/d/1iO6J0560OiZ5ouG5mNHcnIAdojgH88kRoLnKAvmlL8g/
 | Set up html homepage| H | 2hrs| 1.5 | -- |
 |Code homepage javascript| H | 3hrs| 2 | -- |
 |Javascript for races| H | 3hrs| 4 | -- |
-|Manip Dom for choosing Race| H | 3hrs|  | -- |
+|Manip Dom for choosing Race| H | 3hrs| 4 | -- |
 |Javascrpit for Classes| H | 3hrs| 2 | -- |
 |Manip Dom for choosing class| H | 3hrs| 3 | -- |
 |Working with API| H | 3hrs| 2 | -- |
