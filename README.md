@@ -66,11 +66,11 @@ https://www.dnd5eapi.co/api/
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Nov 9| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|Nov 10| Project Approval/Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Nov 12| Pseudocode / actual code / source images | Incomplete
-|Nov 13| MVP | Incomplete
-|Nov 16| PMVP / Polishing | Incomplete
+|Nov 9| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
+|Nov 10| Project Approval/Core Application Structure (HTML, CSS, etc.) | Complete
+|Nov 12| Pseudocode / actual code / source images | Complete
+|Nov 13| MVP | Complete
+|Nov 16| PMVP / Polishing | Partial
 |Nov 17| Presentations | Incomplete
 
 ## Priority Matrix
@@ -81,21 +81,21 @@ https://docs.google.com/drawings/d/1iO6J0560OiZ5ouG5mNHcnIAdojgH88kRoLnKAvmlL8g/
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Set up html homepage| H | 2hrs| 1.5 | -- |
-|Code homepage javascript| H | 3hrs| 2 | -- |
-|Javascript for races| H | 3hrs| 4 | -- |
-|Manip Dom for choosing Race| H | 3hrs| 4 | -- |
-|Javascrpit for Classes| H | 3hrs| 2 | -- |
-|Manip Dom for choosing class| H | 3hrs| 3 | -- |
-|Working with API| H | 3hrs| 2 | -- |
-|Display API info| H | 3hrs| 3 | -- |
-|Styling Divs CSS| H | 3hrs| 4 | -- |
-|Styling Images CSS| H | 3hrs| 4| -- |
-| Extra hours javascripting | H | 3hrs| 4 | -- |
-| Finding Images | H | 3hrs| 6 | -- |
-| Attaching Images to user input | H | 3hrs| 3 | -- |
-| Advanced CSS | L | 3hrs| 4 | -- |
-| Total | H | 41hrs| -- | -- |
+| Set up html homepage| H | 2hrs| 1.5 | 1.5|
+|Code homepage javascript| H | 3hrs| 2 | 3.5 |
+|Javascript for races| H | 3hrs| 4 | 7.5 |
+|Manip Dom for choosing Race| H | 3hrs| 4 | 11.5 |
+|Javascrpit for Classes| H | 3hrs| 2 | 13.5 |
+|Manip Dom for choosing class| H | 3hrs| 3 | 16.5 |
+|Working with API| H | 3hrs| 2 | 18.5 |
+|Display API info| H | 3hrs| 3 | 21.5 |
+|Styling Divs CSS| H | 3hrs| 4 | 25.5 |
+|Styling Images CSS| H | 3hrs| 4| 29.5 |
+| Extra hours javascripting | H | 3hrs| 4 | 33.5 |
+| Finding Images | H | 3hrs| 4.5 | 38 |
+| Attaching Images to user input | H | 3hrs| 3 | 41 |
+| Advanced CSS | L | 3hrs| 4 | 45 |
+| Total | H | 41hrs| 45hrs | 45hrs |
 
 ## Code Snippet
 
@@ -126,4 +126,5 @@ let infoButton = document.createElement('button')
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+-Original plan was to incorporate character attributes on the display page.  I thought spells would be a little more interesting so I swapped the two. Future updates should include attributes.
+-Used two images instead of one in order to save on space and having to source an additional 100 images for each race/class combination.

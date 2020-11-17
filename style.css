@@ -2,7 +2,6 @@ body {
   background-image: url(wallpapertip_dungeon-wallpaper_802355.jpg);
   background-color: #3a3426;
   background-size: cover;
-  /* background-repeat: */
   background-position: center;
   display: flex;
   flex-direction: column;
@@ -56,8 +55,6 @@ font-size: 20px;
   position: absolute;
   top: 10px;
   left: 10px;
-  /* color: rgba(255, 255, 255, 0.1); */
-  /* text-shadow: none; */
   font-size: 24px;
   font-weight: 900;
   cursor: pointer;
@@ -90,12 +87,7 @@ main h4{
 .home {
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
 }
-/* .home img{
-  margin: 15px;
-} */
 .home input{
   width: 90px;
   height: 40px;
@@ -120,7 +112,6 @@ main h4{
 .theRaces img, .theClasses img{
   width: 180px;
   height: 140px;
-  /* height: auto; */
   cursor: pointer;
 }
 .infoButton {
@@ -208,13 +199,10 @@ footer {
   height: 10vh;
   align-items: center;
   justify-content: center;
-  /* position: absolute;
-  bottom: 0;
-  width: 100%; */
 }
 
 /* modal stuff */
-/* While I have tweaked this styling to suite my needs, some of it as well as the general "how to" knowledge for the whole Modal concept came from Richard Middleton and his extremely helpful youtube tutorial on modals. Populating the modal with information from my API was done without outside referance other than what has been learned in class. Mr. Middleton has a delightful brittish accent so the video is worth a watch.
+/* While I have adapted this styling to suite my needs, some of it as well as the general "how to" knowledge for the Modal concept came from Richard Middleton and his extremely helpful youtube tutorial on modals. Populating the modal with information from my API was done without outside referance other than what has been learned in class.
 Youtube video: https://www.youtube.com/watch?v=gLWIYk0Sd38&t=915s
 Codepen from video: https://codepen.io/Middi/pen/rJYOyz?editors=0010 */
 .modalContainer {
@@ -252,7 +240,7 @@ Codepen from video: https://codepen.io/Middi/pen/rJYOyz?editors=0010 */
   text-shadow: 0 0 3px #ffffff;
   font-size: 22px;
 }
-
+ /* Media Query for mobile devices */
 @media (max-width: 500px) {
   header h1{
     font-size: 30px;

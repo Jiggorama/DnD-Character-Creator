@@ -268,11 +268,12 @@ let chooseClass = () => {
   let instruct = document.createElement('h3')
   instruct.textContent = ('Click an Image to select your Class')
   mainPage.append(instruct)
-
+  // Cycle through array of objects
   for (let i = 0; i < classes.length; i++) {
     let classChoice = document.createElement('div')
     classChoice.className = ('theClasses')
     mainPage.append(classChoice)
+    //create headiing and images
     let className = document.createElement('h4')
     className.textContent = (classes[i].name.toUpperCase())
     classChoice.append(className)
@@ -281,13 +282,14 @@ let chooseClass = () => {
     classImage.className = ('theImages')
     classImage.id = (classes[i].name)
     classChoice.append(classImage)
+    //use image to select user class
     classImage.addEventListener('click', () => {
       character.class = classImage.id
-      // console.log(character.class);
       playSound(`arrowHit`)
       highlight(classImage)
     })
   }
+  //Button to advance to next page
   let advance = document.createElement('input')
   advance.setAttribute('type', 'submit')
   advance.setAttribute('value', 'Preview Your Character')
@@ -307,20 +309,21 @@ let chooseClass = () => {
 
 // Display results
 let displayCharacter = (x) => {
+  // Calling some useful functions
   clearMain()
   picRaceDisplay()
   picClassDisplay()
   let apiUrl = `https://www.dnd5eapi.co/api/classes/${x}`
-  //Display text stating what was made
+  //Display a heading stating what was made
   let characterHeading = document.createElement('h3')
   characterHeading.className = ('characterHeading')
   characterHeading.textContent = (`YOU HAVE CREATED A ${character.race.toUpperCase()}, ${character.class.toUpperCase()}`)
   mainPage.append(characterHeading)
-  //create a div for the img and api query
+  //Create a div for the images and api query to style independently
   let characterDiv = document.createElement('div')
   characterDiv.className = 'characterDiv'
   mainPage.append(characterDiv)
-  //add image
+  //add images
   let charRaceImg = document.createElement('img')
   charRaceImg.className = 'charRaceImg'
   charRaceImg.setAttribute('src', character.raceImage)
@@ -330,8 +333,10 @@ let displayCharacter = (x) => {
   charClassImg.setAttribute('src', character.classImage)
   characterDiv.append(charClassImg)
   let apiDiv = document.createElement('div')
-      apiDiv.className = 'apiDiv'
-      characterDiv.append(apiDiv)
+  apiDiv.className = 'apiDiv'
+  characterDiv.append(apiDiv)
+  // API requests
+  // one for proficiencies
   let accessApi2 = async () => {
     try {
       let res = await axios.get(apiUrl)
@@ -350,6 +355,7 @@ let displayCharacter = (x) => {
       console.log(`Error: ${error}`);
     }
   }
+  //One for spells
   let accessApi3 = async () => {
     try {
       let res = await axios.get(`${apiUrl}/spells`)
@@ -372,6 +378,7 @@ let displayCharacter = (x) => {
   }
   accessApi2()
   accessApi3()
+  //Button to start over again
   let advance = document.createElement('input')
         advance.setAttribute('type', 'submit')
         advance.setAttribute('value', 'Start Over')
