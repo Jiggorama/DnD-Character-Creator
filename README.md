@@ -126,5 +126,6 @@ let infoButton = document.createElement('button')
 ```
 
 ## Change Log
--Original plan was to incorporate character attributes on the display page.  I thought spells would be a little more interesting so I swapped the two. Future updates should include attributes.
--Used two images instead of one in order to save on space and having to source an additional 100 images for each race/class combination.
+- Original plan was to incorporate character attributes on the display page.  I thought spells would be a little more interesting so I swapped the two. Future updates should include attributes.
+- Used two images instead of one in order to save on space and having to source an additional 100 images for each race/class combination.
+
