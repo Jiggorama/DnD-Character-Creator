@@ -46,7 +46,7 @@ let human = {
 }
 let tiefling = {
   name: 'tiefling',
-  image: 'https://www.worldanvil.com/uploads/images/f9736309ba86edb1e6d9b9855af60198.png',
+  image: 'https://i.imgur.com/yigY0MB.png',
 }
 
 // Class objects
