@@ -46,7 +46,7 @@ let human = {
 }
 let tiefling = {
   name: 'tiefling',
-  image: 'https://a3fcd471-a-62cb3a1a-s-sites.googlegroups.com/site/heroesoflegendalpha/Navigation/Table-of-Contents/Character-Races/tiefling/Tiefling.png?attachauth=ANoY7cr5AkRFWggGWPJosi4RQyvA0NJvoY2m70Zx_8amxf5JjP1fSH56V4vf35jli3Le6nsIfzbD8aqSeIUwJgnaV3pD1JFhBAdYNYeDCZCvYc2HWrMDJkG5hTNUKtxJqjYwdO7XeiwNM42DQrZZB0Ddek_oJwnTNs8q9cgahp7erx4WdkLfsdfThguB21UuWLBTNfsvfBsXHYVfor7P4Z_Zim1vI2bDSjzLTy6-Gdi0WuvW71jPSLyzWfnTZaQaLgUVGMUECPjxwZfa3itjQ-6jZpDSVo9YZ-wh7Xm0fKvXrulTN9E6axo%3D&attredirects=0',
+  image: 'https://www.worldanvil.com/uploads/images/f9736309ba86edb1e6d9b9855af60198.png',
 }
 
 // Class objects
