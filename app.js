@@ -137,7 +137,7 @@ let pause = (x) => {
 control.addEventListener('click', () => {
   if (control.textContent == '>') {
     let audio = document.getElementById(`backgroundMusic`)
-    audio.volume = 0.5
+    audio.volume = 0.7
     audio.play()
     control.textContent = `||`
   } else {
