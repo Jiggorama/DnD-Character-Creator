@@ -1,76 +1,17 @@
 console.log('Yo Dawg')
-//main page on load
-  // create the main page with a function that runs on load
-  // function will append the main html section with and Image and a button
-  // button takes user input (click) to move on to the next section of the app
-// scroll background https://www.desktopbackground.org/download/1024x600/2013/12/11/683741_20-best-photos-of-scroll-backgrounds-template-blank-scroll-paper_1024x768_h.jpg
-// document.addEventListener('click', () => {
-//   let audio = document.getElementById('backgroundMusic')
-//   if (audio.play() == true) {
-//     audio.pause()
-//   } else {
-//     audio.volume = 0.5
-//     audio.play()
-//   }
-// })
-let control = document.querySelector('#controls')
-control.addEventListener('click', () => {
-  if (control.textContent == '>') {
-    let audio = document.getElementById(`backgroundMusic`)
-    audio.volume = 0.5
-    audio.play()
-    control.textContent = `||`
-  } else {
-    pause(`backgroundMusic`) 
-    control.textContent = `>`
-  }
-})
+//      GLOBAL VARIABLES
+//---------------------------------------------------------
 
 const mainPage = document.querySelector('.main')
-const homePageImage = 'https://i.imgur.com/aQ7nfhC.jpg'
-  let onLoad = () => {
-  let home = document.createElement('div')
-  character.race = null
-  character.class = null
-  home.className = ('home')
-  mainPage.append(home)
-  // --image seems superfluous--
-  // let homeImage = document.createElement('img')
-  // homeImage.setAttribute('src', img1)
-  // home.append(homeImage)
-  let begin = document.createElement('input')
-  begin.setAttribute('type', 'submit')
-  begin.setAttribute('value', 'Begin')
-  home.append(begin)
-  begin.addEventListener('click', (event) => {
-    event.preventDefault()
-    playSound(`jailDoor`)
-    //function to call next section
-    chooseRace()
-    return
-  })
-}
-
-
-//charecter
-  //set a variable to charecter which will be an object
-  // character will include a race and class
-  // character = object
-  //      race
-  //      class
-  // create an array of objects of races
-  // create an array of classes
-  // create an image bank for each class
-let img1 = 'https://wotbsadventurepath.files.wordpress.com/2013/05/ragesian-castle.jpg'
-
-// character
+let control = document.querySelector('#controls')
+// Character
 let character = {
   race: null,
   class: null,
   raceImage: '',
   classImage: '',
 }
-// race objects
+// Race objects
 let dragonborn = {
   name: 'dragonborn',
   image: 'https://i.pinimg.com/200x150/07/b2/db/07b2db8ddb667073da31a5f9d8add32b.jpg',
@@ -107,8 +48,6 @@ let tiefling = {
   name: 'tiefling',
   image: 'https://a3fcd471-a-62cb3a1a-s-sites.googlegroups.com/site/heroesoflegendalpha/Navigation/Table-of-Contents/Character-Races/tiefling/Tiefling.png?attachauth=ANoY7cr5AkRFWggGWPJosi4RQyvA0NJvoY2m70Zx_8amxf5JjP1fSH56V4vf35jli3Le6nsIfzbD8aqSeIUwJgnaV3pD1JFhBAdYNYeDCZCvYc2HWrMDJkG5hTNUKtxJqjYwdO7XeiwNM42DQrZZB0Ddek_oJwnTNs8q9cgahp7erx4WdkLfsdfThguB21UuWLBTNfsvfBsXHYVfor7P4Z_Zim1vI2bDSjzLTy6-Gdi0WuvW71jPSLyzWfnTZaQaLgUVGMUECPjxwZfa3itjQ-6jZpDSVo9YZ-wh7Xm0fKvXrulTN9E6axo%3D&attredirects=0',
 }
-// array of objects
-const races = [dragonborn, dwarf, elf, gnome, halfElf, halfOrc, halfling, human, tiefling]
 
 // Class objects
 let barbarian = {
@@ -159,16 +98,14 @@ let wizard = {
   name: 'wizard',
   image: 'https://blizzardwatch.com/wp-content/uploads/2020/08/TashaIggwil.png',
 }
-//array of objects
+// Arrays of objects
 const classes = [barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, rogue, sorcerer, warlock, wizard]
-// const imageBank = []
-  
+const races = [dragonborn, dwarf, elf, gnome, halfElf, halfOrc, halfling, human, tiefling]
 
-// clear the main and other useful functions
-  //function to append the main and remove child elements
-  //function = clearMain
+//      USEFULL FUNCTIONS
+//---------------------------------------------------------
 
-
+// Clearing
 let clearMain = () => {
   while (mainPage.lastChild) {
     mainPage.removeChild(mainPage.lastChild)
@@ -177,10 +114,9 @@ let clearMain = () => {
 let clearModal = (parent) => {
    parent.removeChild(parent.lastChild)
 }
-
+// Highlight Divs
 let highlight = (item) => {
   let images = document.querySelectorAll('img')
-  // console.log(images);
   images.forEach(element => {
     if (element.classList.contains('active')) {
       element.removeAttribute('class','active')
@@ -188,51 +124,107 @@ let highlight = (item) => {
   })
   item.classList.add('active')
 }
+// Sound effects
+let playSound = (x) => {
+  let audio = document.getElementById(`${x}`)
+  audio.play() 
+}
+let pause = (x) => {
+  let audio = document.getElementById(`${x}`)
+  audio.pause()
+}
+// Background music
+control.addEventListener('click', () => {
+  if (control.textContent == '>') {
+    let audio = document.getElementById(`backgroundMusic`)
+    audio.volume = 0.5
+    audio.play()
+    control.textContent = `||`
+  } else {
+    pause(`backgroundMusic`) 
+    control.textContent = `>`
+  }
+})
+// Tie final dispay images to user choices
+let picRaceDisplay = () => {
+  for (let i = 0; i < races.length; i++) {
+   if (character.race == races[i].name) {
+     character.raceImage = races[i].image
+   }    
+  }
+}
+let picClassDisplay = () => {
+  for (let i = 0; i < classes.length; i++) {
+   if (character.class == classes[i].name) {
+     character.classImage = classes[i].image
+   }    
+  }
+}
+//  MAIN FUNCTIONS
+//---------------------------------------------------------
 
-// User selects a race
-    // on mainpage button event
-      // run clearMain function
-    //in a function:
-      // append main html to present all races as options
-      // add event listeners for user to click to select a race, a checkmark works as well
-      //create a button on the main html that advances to the next section
-      // on click store the users race selection in the character object and advance to next section of app
+// Opening Page
+  let onLoad = () => {
+  let home = document.createElement('div')
+  character.race = null
+  character.class = null
+  home.className = ('home')
+  mainPage.append(home)
+  let begin = document.createElement('input')
+  begin.setAttribute('type', 'submit')
+  begin.setAttribute('value', 'Begin')
+  home.append(begin)
+  begin.addEventListener('click', (event) => {
+    event.preventDefault()
+    playSound(`jailDoor`)
+    //function to call next section
+    chooseRace()
+    return
+  })
+}
 
-
+// Choose Player Race
 function chooseRace() {
   clearMain()
+  //create instructions
   let instruct = document.createElement('h3')
   instruct.textContent = ('Click an Image to select your Race')
   mainPage.append(instruct)
-
+  //Use for loop for unique options for each race
   for (let i = 0; i < races.length; i++) {
+    //Create Divs for each race option
     let raceChoice = document.createElement('div')
     raceChoice.className = ('theRaces')
     mainPage.append(raceChoice)
+    //Name element
     let raceName = document.createElement('h4')
     raceName.textContent = (races[i].name.toUpperCase())
     raceChoice.append(raceName)
+    //image element
     let raceImage = document.createElement('img')
     raceImage.setAttribute('src', races[i].image)
     raceImage.className = ('theImages')
     raceImage.id =(races[i].name)
     raceChoice.append(raceImage)
+    //image sets user input
     raceImage.addEventListener('click', () => {
       character.race = raceImage.id
       playSound(`arrowHit`)
-      // console.log(character.race)
       highlight(raceImage)
     })
+    //info button element
     let infoButton = document.createElement('button')
     infoButton.setAttribute('id', races[i].name)
     infoButton.className = ('infoButton')
     infoButton.textContent = ('info')
     raceChoice.append(infoButton)
+    //Populate modal with information from API
     infoButton.addEventListener('click', () => {
       playSound(`arrow`)
       let modal = document.querySelector('.modal')
       clearModal(modal)
       let info = document.createElement('p')
+      //API access
       let accessApi1 = async () => {
         try {
           let res = await axios.get(`https://www.dnd5eapi.co/api/races/${infoButton.id}`)
@@ -247,104 +239,84 @@ function chooseRace() {
     })
 
   }
+  //close Modal
   document.querySelector('.close').addEventListener('click', () => {
     playSound(`arrow`)
     document.querySelector('.modalContainer').style.display = 'none'
   })
+  //Button to advance to next page
   let advance = document.createElement('input')
   advance.setAttribute('type', 'submit')
   advance.setAttribute('value', 'Now Choose your Class')
   advance.className = ('advance')
   mainPage.append(advance)
+  //Button functionality
   advance.addEventListener('click', (event) => {
     event.preventDefault()
     if (character.race == null) {
       alert('PlEASE CHOOSE A RACE')
     } else {
       playSound(`jailDoor`)
-      // function to call next section
       chooseClass()
     }
   })
 }
 
+//  Choose Player Class
+let chooseClass = () => {
+  clearMain()
+  let instruct = document.createElement('h3')
+  instruct.textContent = ('Click an Image to select your Class')
+  mainPage.append(instruct)
 
-// user selects a class
-   // on advance button event
-      // run clearMain function
-    //in a function:
-      // append main html to present all classes as options
-      // add event listeners for user to click to select a class, a checkmark works as well
-      //create a button on the main html that advances to the next section
-      // on click store the users class selection in the character object and advance to next section of app
+  for (let i = 0; i < classes.length; i++) {
+    let classChoice = document.createElement('div')
+    classChoice.className = ('theClasses')
+    mainPage.append(classChoice)
+    let className = document.createElement('h4')
+    className.textContent = (classes[i].name.toUpperCase())
+    classChoice.append(className)
+    let classImage = document.createElement('img')
+    classImage.setAttribute('src', classes[i].image)
+    classImage.className = ('theImages')
+    classImage.id = (classes[i].name)
+    classChoice.append(classImage)
+    classImage.addEventListener('click', () => {
+      character.class = classImage.id
+      // console.log(character.class);
+      playSound(`arrowHit`)
+      highlight(classImage)
+    })
+  }
+  let advance = document.createElement('input')
+  advance.setAttribute('type', 'submit')
+  advance.setAttribute('value', 'Preview Your Character')
+  advance.className = ('advance')
+  mainPage.append(advance)
+  advance.addEventListener('click', (event) => {
+    event.preventDefault()
+    if (character.class == null) {
+      alert('PlEASE CHOOSE A CLASS')
+    } else {
+      playSound(`jailDoor`)
+      // function to call next section
+      displayCharacter(character.class)
+    }
+  })
+}
 
-
-      let chooseClass = () => {
-        clearMain()
-        let instruct = document.createElement('h3')
-        instruct.textContent = ('Click an Image to select your Class')
-        mainPage.append(instruct)
-
-        for (let i = 0; i < classes.length; i++) {
-          let classChoice = document.createElement('div')
-          classChoice.className = ('theClasses')
-          mainPage.append(classChoice)
-          let className = document.createElement('h4')
-          className.textContent = (classes[i].name.toUpperCase())
-          classChoice.append(className)
-          let classImage = document.createElement('img')
-          classImage.setAttribute('src', classes[i].image)
-          classImage.className = ('theImages')
-          classImage.id = (classes[i].name)
-          classChoice.append(classImage)
-          classImage.addEventListener('click', () => {
-          character.class = classImage.id
-          // console.log(character.class);
-            playSound(`arrowHit`)
-            highlight(classImage)
-          })
-        }
-        let advance = document.createElement('input')
-        advance.setAttribute('type', 'submit')
-        advance.setAttribute('value', 'Preview Your Character')
-        advance.className = ('advance')
-        mainPage.append(advance)
-        advance.addEventListener('click', (event) => {
-          event.preventDefault()
-          if (character.class == null) {
-            alert('PlEASE CHOOSE A CLASS')
-          } else {
-            playSound(`jailDoor`)
-          // function to call next section
-          displayCharacter(character.class)
-          }
-        })
-      }
-
-
-// display results
-  // on advance button event
-      // run clearMain function
-  //in a function
-    // append the main html to display the race and class chosen by the user as text at the top of the page below the heading
-    // access the image bank for the corresponding class and append to the main to appear on the right
-    // use character class to access Dnd API
-      // dispay the classes proficiencies and attributes listed on the API appended to the main on the left of the image
-    // Append main with a start over button
-      // button when click will refresh page or invoke main page function
-
-
+// Display results
 let displayCharacter = (x) => {
   clearMain()
   picRaceDisplay()
   picClassDisplay()
   let apiUrl = `https://www.dnd5eapi.co/api/classes/${x}`
-//Display text stating what was made
+  //Display text stating what was made
   let characterHeading = document.createElement('h3')
   characterHeading.className = ('characterHeading')
   characterHeading.textContent = (`YOU HAVE CREATED A ${character.race.toUpperCase()}, ${character.class.toUpperCase()}`)
   mainPage.append(characterHeading)
-//create a div for the img and api query
+  //create a div for the img and api query
   let characterDiv = document.createElement('div')
   characterDiv.className = 'characterDiv'
   mainPage.append(characterDiv)
@@ -353,12 +325,10 @@ let displayCharacter = (x) => {
   charRaceImg.className = 'charRaceImg'
   charRaceImg.setAttribute('src', character.raceImage)
   characterDiv.append(charRaceImg)
-
   let charClassImg = document.createElement('img')
   charClassImg.className = 'charClassImg'
   charClassImg.setAttribute('src', character.classImage)
   characterDiv.append(charClassImg)
-  //access api
   let apiDiv = document.createElement('div')
       apiDiv.className = 'apiDiv'
       characterDiv.append(apiDiv)
@@ -383,13 +353,11 @@ let displayCharacter = (x) => {
   let accessApi3 = async () => {
     try {
       let res = await axios.get(`${apiUrl}/spells`)
-      // console.log(res.data)
       if (res.data.count > 0) {
         let spellsList = document.createElement('ul')
         apiDiv.append(spellsList)
         spellsList.textContent = 'Spells:'
         let spells = res.data.results
-        // console.log(spells.length)
         for (let i = 0; i < 4; i++) {        
           let listItem = document.createElement('li')
           let randomIndex = Math.floor(Math.random() * spells.length)
@@ -416,30 +384,5 @@ let displayCharacter = (x) => {
     onLoad()
   })
 }
-// functions to tie final dispay images to user choices
-let picRaceDisplay = () => {
-  for (let i = 0; i < races.length; i++) {
-   if (character.race == races[i].name) {
-     character.raceImage = races[i].image
-   }    
-  }
-}
-let picClassDisplay = () => {
-  for (let i = 0; i < classes.length; i++) {
-   if (character.class == classes[i].name) {
-     character.classImage = classes[i].image
-   }    
-  }
-}
-// sound effects
-let playSound = (x) => {
-  let audio = document.getElementById(`${x}`)
-  // audio.volume = 0.8
-  audio.play() 
-}
-let pause = (x) => {
-  let audio = document.getElementById(`${x}`)
-  audio.pause()
-}
-      
+// Invoke App    
 onLoad()
